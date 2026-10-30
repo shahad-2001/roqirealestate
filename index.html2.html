@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>رُقي العقارية | RoQi Real Estate</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --gold: #c6a76b;
+    --dark: #151714;
+    --cream: #f7f5ef;
+    --white: #ffffff;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    background: var(--cream);
+    color: #222;
+}
+
+nav {
+    background: #151714;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 8%;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 27px;
+    font-weight: 800;
+    color: var(--gold);
+    letter-spacing: 1px;
+}
+
+.logo span {
+    display: block;
+    color: white;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-align: center;
+}
+
+nav ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: var(--gold);
+}
+
+.contact-btn {
+    background: var(--gold);
+    color: #151714;
+    padding: 10px 22px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 13px;
+}
+
+.hero {
+    min-height: 650px;
+    background:
+    linear-gradient(90deg, rgba(0,0,0,.25), rgba(0,0,0,.78)),
+    url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2000&q=85');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    padding: 8%;
+    color: white;
+}
+
+.hero-content {
+    max-width: 650px;
+}
+
+.hero small {
+    color: var(--gold);
+    font-size: 16px;
+    letter-spacing: 2px;
+}
+
+.hero h1 {
+    font-size: 58px;
+    line-height: 1.5;
+    margin: 15px 0;
+}
+
+.hero h1 span {
+    color: var(--gold);
+}
+
+.hero p {
+    color: #ddd;
+    line-height: 2;
+    font-size: 17px;
+    margin-bottom: 30px;
+}
+
+.gold-btn {
+    display: inline-block;
+    background: var(--gold);
+    color: #151714;
+    padding: 14px 35px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: .3s;
+}
+
+.gold-btn:hover {
+    background: white;
+    transform: translateY(-3px);
+}
+
+.stats {
+    background: #151714;
+    color: white;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 35px 8%;
+    text-align: center;
+}
+
+.stat h2 {
+    color: var(--gold);
+    font-size: 30px;
+}
+
+.stat p {
+    font-size: 13px;
+    color: #bbb;
+}
+
+section {
+    padding: 85px 8%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-title small {
+    color: var(--gold);
+    font-weight: 700;
+}
+
+.section-title h2 {
+    font-size: 34px;
+    margin-top: 10px;
+    color: #222;
+}
+
+.section-title p {
+    color: #777;
+    margin-top: 10px;
+}
+
+.properties {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.card {
+    background: white;
+    overflow: hidden;
+    box-shadow: 0 5px 25px rgba(0,0,0,.06);
+    transition: .4s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0,0,0,.12);
+}
+
+.card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.card-info {
+    padding: 22px;
+}
+
+.tag {
+    color: #a38448;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.card h3 {
+    font-size: 19px;
+    margin: 10px 0;
+}
+
+.location {
+    color: #888;
+    font-size: 13px;
+}
+
+.features {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #eee;
+    margin-top: 18px;
+    padding-top: 15px;
+    color: #777;
+    font-size: 12px;
+}
+
+.price {
+    color: #a38448;
+    font-size: 21px;
+    font-weight: 800;
+    margin-top: 15px;
+}
+
+.about {
+    background: #171a16;
+    color: white;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 55px;
+    align-items: center;
+}
+
+.about img {
+    width: 100%;
+    height: 430px;
+    object-fit: cover;
+}
+
+.about small {
+    color: var(--gold);
+}
+
+.about h2 {
+    font-size: 35px;
+    margin: 15px 0;
+}
+
+.about p {
+    color: #ccc;
+    line-height: 2.3;
+    margin-bottom: 25px;
+}
+
+.advantages {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    text-align: center;
+}
+
+.advantage {
+    background: white;
+    padding: 35px 20px;
+    border-bottom: 3px solid var(--gold);
+}
+
+.advantage .icon {
+    font-size: 35px;
+}
+
+.advantage h3 {
+    margin: 15px 0;
+}
+
+.advantage p {
+    color: #888;
+    font-size: 13px;
+    line-height: 2;
+}
+
+.contact {
+    background: #eae6dc;
+    text-align: center;
+}
+
+.contact h2 {
+    font-size: 35px;
+    margin: 15px 0;
+}
+
+.contact p {
+    color: #666;
+    margin-bottom: 25px;
+}
+
+footer {
+    background: #151714;
+    color: white;
+    text-align: center;
+    padding: 35px 15px;
+}
+
+footer h2 {
+    color: var(--gold);
+    margin-bottom: 10px;
+}
+
+footer p {
+    color: #aaa;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+@media(max-width: 900px) {
+    .properties {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about {
+        grid-template-columns: 1fr;
+    }
+
+    nav ul {
+        gap: 12px;
+    }
+}
+
+@media(max-width: 600px) {
+    nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero {
+        min-height: 550px;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .properties,
+    .advantages {
+        grid-template-columns: 1fr;
+    }
+
+    .stats {
+        padding: 25px 10px;
+    }
+
+    .stat h2 {
+        font-size: 23px;
+    }
+
+    section {
+        padding: 60px 6%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">
+        رُقي
+        <span>ROQI REAL ESTATE</span>
+    </div>
+
+    <ul>
+        <li><a href="#home">الرئيسية</a></li>
+        <li><a href="#properties">العقارات</a></li>
+        <li><a href="#about">من نحن</a></li>
+        <li><a href="#services">مميزاتنا</a></li>
+    </ul>
+
+    <a href="#contact" class="contact-btn">تواصل معنا</a>
+</nav>
+
+<!-- الرئيسية -->
+
+<header class="hero" id="home">
+    <div class="hero-content">
+        <small>ROQI REAL ESTATE</small>
+
+        <h1>
+            نرتقي باختياراتك<br>
+            <span>نصنع قيمة عقارك</span>
+        </h1>
+
+        <p>
+            اكتشف عالمًا من العقارات الفاخرة والاستثمارات الواعدة.
+            في رُقي العقارية، نمنحك تجربة عقارية تجمع بين الفخامة
+            والثقة وجودة الاختيار.
+        </p>
+
+        <a href="#properties" class="gold-btn">اكتشف عقاراتنا</a>
+    </div>
+</header>
+
+<!-- الإحصائيات -->
+
+<div class="stats">
+    <div class="stat">
+        <h2>+150</h2>
+        <p>عقار متنوع</p>
+    </div>
+
+    <div class="stat">
+        <h2>+200</h2>
+        <p>عميل سعيد</p>
+    </div>
+
+    <div class="stat">
+        <h2>+10</h2>
+        <p>سنوات من الخبرة</p>
+    </div>
+</div>
+
+<!-- العقارات -->
+
+<section id="properties">
+
+    <div class="section-title">
+        <small>OUR PROPERTIES</small>
+        <h2>اكتشف عقاراتنا</h2>
+        <p>خيارات عقارية مختارة بعناية لتناسب طموحاتك</p>
+    </div>
+
+    <div class="properties">
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=900&q=80">
+            <div class="card-info">
+                <span class="tag">فيلا فاخرة</span>
+                <h3>فيلا مودرن بتصميم عصري</h3>
+                <p class="location">📍 الرياض - حي القيروان</p>
+                <div class="features">
+                    <span>🛏 5 غرف</span>
+                    <span>🚿 4 حمامات</span>
+                    <span>📐 450 م²</span>
+                </div>
+                <div class="price">3,500,000 ريال</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=900&q=80">
+            <div class="card-info">
+                <span class="tag">فيلا فاخرة</span>
+                <h3>فيلا بتصميم معماري راقٍ</h3>
+                <p class="location">📍 الرياض - حي النرجس</p>
+                <div class="features">
+                    <span>🛏 6 غرف</span>
+                    <span>🚿 5 حمامات</span>
+                    <span>📐 500 م²</span>
+                </div>
+                <div class="price">4,200,000 ريال</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=80">
+            <div class="card-info">
+                <span class="tag">شقة سكنية</span>
+                <h3>شقة بتصميم أنيق</h3>
+                <p class="location">📍 الرياض - حي الملقا</p>
+                <div class="features">
+                    <span>🛏 3 غرف</span>
+                    <span>🚿 2 حمام</span>
+                    <span>📐 180 م²</span>
+                </div>
+                <div class="price">950,000 ريال</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=900&q=80">
+            <div class="card-info">
+                <span class="tag">فيلا عائلية</span>
+                <h3>فيلا عائلية بحديقة خاصة</h3>
+                <p class="location">📍 الرياض - حي الياسمين</p>
+                <div class="features">
+                    <span>🛏 5 غرف</span>
+                    <span>🚿 4 حمامات</span>
+                    <span>📐 400 م²</span>
+                </div>
+                <div class="price">2,800,000 ريال</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=900&q=80">
+            <div class="card-info">
+                <span class="tag">شقة فاخرة</span>
+                <h3>شقة بإطلالة مميزة</h3>
+                <p class="location">📍 الرياض - حي حطين</p>
+                <div class="features">
+                    <span>🛏 3 غرف</span>
+                    <span>🚿 3 حمامات</span>
+                    <span>📐 200 م²</span>
+                </div>
+                <div class="price">1,350,000 ريال</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=900&q=80">
+            <div class="card-info">
+                <span class="tag">أرض استثمارية</span>
+                <h3>أرض سكنية بموقع مميز</h3>
+                <p class="location">📍 الرياض - حي القيروان</p>
+                <div class="features">
+                    <span>📐 750 م²</span>
+                    <span>استثمار عقاري</span>
+                </div>
+                <div class="price">2,000,000 ريال</div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- من نحن -->
+
+<section class="about" id="about">
+
+    <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1000&q=85">
+
+    <div>
+        <small>ABOUT ROQI</small>
+
+        <h2>رُقي العقارية<br>حيث تبدأ قيمة الاختيار</h2>
+
+        <p>
+            رُقي العقارية علامة عقارية تهدف إلى تقديم تجربة
+            استثنائية في عالم العقارات، من خلال توفير خيارات
+            سكنية واستثمارية تجمع بين الجودة والفخامة والموقع
+            المميز.
+        </p>
+
+        <p>
+            نؤمن بأن العقار ليس مجرد مساحة، بل هو استثمار
+            للمستقبل وبداية لحياة أكثر تميزًا.
+        </p>
+
+        <a href="#contact" class="gold-btn">تواصل معنا</a>
+    </div>
+
+</section>
+
+<!-- المميزات -->
+
+<section id="services">
+
+    <div class="section-title">
+        <small>WHY ROQI</small>
+        <h2>لماذا تختار رُقي؟</h2>
+        <p>قيم نحرص على تقديمها في كل تجربة عقارية</p>
+    </div>
+
+    <div class="advantages">
+
+        <div class="advantage">
+            <div class="icon">✦</div>
+            <h3>الجودة والفخامة</h3>
+            <p>نقدم خيارات عقارية بمعايير عالية وتصاميم مميزة.</p>
+        </div>
+
+        <div class="advantage">
+            <div class="icon">◇</div>
+            <h3>الثقة والمصداقية</h3>
+            <p>نحرص على بناء علاقات قائمة على الشفافية والثقة.</p>
+        </div>
+
+        <div class="advantage">
+            <div class="icon">⌂</div>
+            <h3>فرص استثمارية</h3>
+            <p>نساعدك في اكتشاف خيارات عقارية تناسب أهدافك.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- التواصل -->
+
+<section class="contact" id="contact">
+
+    <small>CONTACT US</small>
+
+    <h2>لنبدأ رحلتك العقارية</h2>
+
+    <p>
+        يسعدنا التواصل معك ومساعدتك في اختيار العقار المناسب.
+    </p>
+
+    <a href="mailto:info@roqi.com" class="gold-btn">
+        تواصل معنا عبر البريد الإلكتروني
+    </a>
+
+</section>
+
+<footer>
+
+    <h2>رُقي العقارية</h2>
+
+    <p>ROQI REAL ESTATE</p>
+
+    <p>نرتقي باختياراتك ونصنع قيمة عقارك</p>
+
+    <p>© 2026 RoQi Real Estate. جميع الحقوق محفوظة.</p>
+
+</footer>
+
+</body>
+</html>
